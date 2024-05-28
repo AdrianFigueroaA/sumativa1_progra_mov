@@ -1,0 +1,7 @@
+{
+  "name": "cinetopiApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
