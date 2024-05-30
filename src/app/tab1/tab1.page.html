@@ -1,11 +1,3 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
@@ -13,5 +5,84 @@
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+
+  <h1 class="ion-text-center">Noticias del cine</h1>
+
+  <div id="container-card-estrenos">
+    <ion-card>
+      <img alt="Silhouette of mountains" src=".././../assets/img/noticia1.png" />
+      <ion-card-header>
+        <ion-card-title>La nueva película de 'El Señor de los Anillos' contará con un veterano de la saga con una
+          condición: "Sería estúpido
+          hacerlo de otra forma"</ion-card-title>
+        <ion-card-subtitle>30 may. 2024 a las 16:29</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-button id="open-modal" expand="block">Leer más</ion-button>
+        <p>{{ message }}</p>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+
+  <ion-card>
+    <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+    <ion-card-header>
+      <ion-card-title>Card Title</ion-card-title>
+      <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      Here's a small text description for the card content. Nothing more, nothing less.
+    </ion-card-content>
+  </ion-card>
+
+
+  <ion-modal trigger="open-modal" (willDismiss)="onWillDismiss($event)">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-button (click)="cancel()">Cerrar</ion-button>
+          </ion-buttons>
+          <!-- <ion-title>Welcome</ion-title> -->
+          <!-- <ion-buttons slot="end">
+            <ion-button (click)="confirm()" [strong]="true">Confirm</ion-button>
+          </ion-buttons> -->
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <h1>'The Lord of the Rings: The Hunt for Gollum' está dirigida y protagonizada por Andy Seréis y llegará a los
+          cines en 2026</h1>
+
+        <p>El Señor de los Anillos vuelve a la gran pantalla, si todo va bien, en 2026. The Lord Of The Rings: The
+          Hunt for Gollum
+          devolverá al cine el universo creado por J.R.R. Tolkien tras el filme de animación The War Of Rohirrim. Andy
+          Serkis
+          volverá a dar vida a Gollum en esta precuela que también dirigirá, y el proyecto deja la puerta abierta a
+          más regresos:
+          ¿Orlando Bloom como Legolas? ¿Otros elfos? ¿Quizá algún Hobbit? Todavía es pronto para responder a esas
+          preguntas, pero
+          uno de los veteranos de la saga ya ha dejado la puerta abierta a su vuelta. Eso sí, con una condición.</p>
+
+        <p>Como concluye:
+
+          Me gusta interpretar al personaje. Aprendí mucho interpretando al personaje. Lo disfruté mucho. Solo lo haré
+          si es lo
+          correcto en términos de, ya sabes, la edad que tengo ahora y demás. Solo lo haré si es lo correcto para el
+          personaje.
+          Sería estúpido hacerlo de otra forma
+
+          Por las declaraciones de Mortensen y lo que se sabe de la película, parece que su regreso como Aragorn no se
+          hará
+          realidad. Jackson, que está involucrado en la película, ha dicho que el objetivo es "explorar su pasado [el
+          de Gollum]"
+          y "profundizar en aquellas partes de su viaje" que no tuvieron tiempo de cubrir en las primeras películas.
+          Mortensen,
+          por edad, encajaría más en una secuela de la trilogía que en una precuela.</p>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
 </ion-content>
