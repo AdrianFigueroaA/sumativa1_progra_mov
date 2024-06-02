@@ -1,14 +1,5 @@
-// import { Component } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
-
-// @Component({
-//   selector: 'app-tab2',
-//   templateUrl: 'tab2.page.html',
-//   styleUrls: ['tab2.page.scss'],
-// })
-// export class Tab2Page {
-//   constructor() {}
-// }
+import { DataService } from '../data-service.service';
 
 @Component({
   selector: 'app-tab2',
@@ -16,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['tab2.page.scss'],
 })
 export class Tab2Page implements OnInit {
-  constructor() {}
+  constructor(private dataService: DataService) {}
 
   ngOnInit() {
     this.mostrarPosters(document.getElementById('container-card-estrenos'));
@@ -52,22 +43,43 @@ export class Tab2Page implements OnInit {
           : 'imagen-no-disponible.jpg';
 
         html += `
-          <ion-card   class="ion-text-center">
-            <img alt="Silhouette of mountains" src="${imagen}" />
+          <ion-card class="card-film ion-text-center">
+            <img alt="${titulo}" src="${imagen}" />
             <ion-card-header>
               <ion-card-title>${titulo}</ion-card-title>
             </ion-card-header>
+            <ion-button class="button-film" data-titulo="${titulo}" data-imagen="${imagen}" expand="block">Guardar pelicula</ion-button>
           </ion-card>
+          <ion-item-divider>
+            <ion-label></ion-label>
+          </ion-item-divider>
         `;
       }
 
       if (elementoHTML) {
         elementoHTML.innerHTML = html;
+
+        const buttons = elementoHTML.querySelectorAll('.button-film');
+        buttons.forEach((button) => {
+          button.addEventListener('click', (event) => {
+            const target = event.currentTarget as HTMLElement;
+            const titulo = target.getAttribute('data-titulo');
+            const imagen = target.getAttribute('data-imagen');
+            if (titulo && imagen) {
+              this.capturaPelicula(titulo, imagen);
+            }
+          });
+        });
       } else {
         console.error('Elemento HTML no encontrado');
       }
     } catch (error) {
       console.error('Error al obtener los datos:', error);
     }
+  }
+
+  capturaPelicula(titulo: string, imagen: string) {
+    this.dataService.guardarPelicula({ titulo, imagen });
+    console.log(`Pelicula guardada: ${titulo}, ${imagen}`);
   }
 }
