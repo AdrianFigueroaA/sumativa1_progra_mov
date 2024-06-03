@@ -19,27 +19,31 @@
       </ion-card-header>
 
       <ion-card-content>
-        <ion-button id="open-modal" expand="block">Leer más</ion-button>
+        <ion-button id="open-modal1" expand="block">Leer más</ion-button>
+        <p>{{ message }}</p>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <img alt="Silhouette of mountains" src=".././../assets/img/noticia2.png" />
+      <ion-card-header>
+        <ion-card-title>Esta trama de 'Harry Potter' es un agujero de guion: solo quien se ha leído los libros tiene la
+          respuesta</ion-card-title>
+        <ion-card-subtitle>30 may. 2024 a las 16:29</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-button id="open-modal2" expand="block">Leer más</ion-button>
         <p>{{ message }}</p>
       </ion-card-content>
     </ion-card>
   </div>
 
 
-  <ion-card>
-    <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
-    <ion-card-header>
-      <ion-card-title>Card Title</ion-card-title>
-      <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-    </ion-card-header>
-
-    <ion-card-content>
-      Here's a small text description for the card content. Nothing more, nothing less.
-    </ion-card-content>
-  </ion-card>
 
 
-  <ion-modal trigger="open-modal" (willDismiss)="onWillDismiss($event)">
+
+  <ion-modal trigger="open-modal1" (willDismiss)="onWillDismiss($event)">
     <ng-template>
       <ion-header>
         <ion-toolbar>
@@ -81,6 +85,42 @@
           y "profundizar en aquellas partes de su viaje" que no tuvieron tiempo de cubrir en las primeras películas.
           Mortensen,
           por edad, encajaría más en una secuela de la trilogía que en una precuela.</p>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+
+  <ion-modal trigger="open-modal2" (willDismiss)="onWillDismiss($event)">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-button (click)="cancel()">Cerrar</ion-button>
+          </ion-buttons>
+          <!-- <ion-title>Welcome</ion-title> -->
+          <!-- <ion-buttons slot="end">
+              <ion-button (click)="confirm()" [strong]="true">Confirm</ion-button>
+            </ion-buttons> -->
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <h1>No le preguntéis a JK Rowling que igual no se acuerda</h1>
+
+        <p>Ahora la conocemos como millonaria, pero JK Rowling, antes de escribir Harry Potter y la piedra filosofal,
+          pasó momentos
+          muy malos: de hecho llegó a pedir ayudas del gobierno, que le dieron unos 100 euros semanales, y acabó siendo
+          "tan pobre
+          como es posible, sin ser una sintecho", según se definió ella misma. Ese libro era lo que le hacía seguir.
+          Escribía en
+          cafés, en casas que le dejaban amigos, allá donde podía. Al final, justo después de conseguir su certificado
+          para poder
+          ser profesora, terminó esa primera novela. El resto ya os lo sabéis de sobra.</p>
+
+        <p>Y eso que doce editoriales rechazaron a la escritora hasta que consiguió un golpe de suerte: la hija del
+          departamento de
+          literatura infantil de Bloomsbury vio a su hija leyendo un capítulo tras otro y decidió hacerle el favor de
+          intentarlo,
+          no sin advertirle de que jamás cobraría una sola libra de la literatura infantil. Vaya ojo, ¿eh?</p>
       </ion-content>
     </ng-template>
   </ion-modal>

@@ -30,4 +30,10 @@ export class Tab1Page {
       this.message = `Hello, ${ev.detail.data}!`;
     }
   }
+  // onWillDismiss2(event: Event) {
+  //   const ev = event as CustomEvent<OverlayEventDetail<string>>;
+  //   if (ev.detail.role === 'confirm') {
+  //     this.message = `Hello, ${ev.detail.data}!`;
+  //   }
+  // }
 }
